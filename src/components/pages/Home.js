@@ -13,7 +13,6 @@ export  function loader() {
     return redirect('/login'); // Redirect to the login page if no valid token is found
   }
 }
-
 const Home = () => {
   const data = useLoaderData();
   const [isBreathing, setIsBreathing] = useState(false);
@@ -28,7 +27,6 @@ const Home = () => {
     }
     return () => clearInterval(interval);
   }, [isBreathing]);
-
   const affirmations = [
     { title: "Don't Start Your Journey", image: "https://v0.dev/placeholder.svg?height=200&width=200" },
     { title: "Gratitude", image: "https://v0.dev/placeholder.svg?height=200&width=200" },
