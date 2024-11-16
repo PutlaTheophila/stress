@@ -1,10 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
-import {decodeGoogleToken} from '../utils' ;  // Import the loader function
+import {decodeGoogleToken} from '../utils' ; 
 
-const CLIENT_ID = process.env.CLIENT_ID; // Replace with your Google Client ID in .env
-
+const CLIENT_ID = process.env.CLIENT_ID; 
 const Login = () => {
   const navigate = useNavigate();
 
@@ -14,17 +13,16 @@ const Login = () => {
     try {
       const credential = response.credential;
 
-      // Use the loader function to decode the Google ID token
+
       const userInfo = decodeGoogleToken(credential);
 
       if (userInfo) {
         console.log('Decoded User Info:', userInfo);
 
-        // Store user information and token securely (localStorage or any other method)
         localStorage.setItem('user', JSON.stringify(userInfo));
         localStorage.setItem('authToken', credential);
 
-        // Navigate to home page
+
         navigate('/');
       } else {
         alert('Failed to decode user information');
@@ -81,3 +79,4 @@ const Login = () => {
 };
 
 export default Login;
+//
